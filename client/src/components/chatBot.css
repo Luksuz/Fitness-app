@@ -1,0 +1,11 @@
+.conversation-container .row{
+    margin: 2px;
+    border-radius: 5px;
+    width: fit-content;
+}
+.conversation-container{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: auto;
+    max-height: 330px;
+}

@@ -26,8 +26,7 @@ class OpenAIEndpoint:
         openai.Completion.create(
             model="text-davinci-003",
             prompt="Say this is a test",
-            max_tokens=7,
+            max_tokens=700,
             temperature=0
         )
-
 #

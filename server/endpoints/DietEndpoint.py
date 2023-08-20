@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 import json
 from service.UserService import UserService
 from datasource.dto.DietDto import DietDto
@@ -13,7 +13,7 @@ dietService = DietService()
 class DietPlanEndpoint:
 
     @staticmethod
-    @dietBlueprint.route("/<string:mongo_id>/create", methods=["POST"])
+    @diet.route("/<string:mongo_id>/create", methods=["POST"])
     def createMealPlan(mongo_id):
         dietDto = DietDto()
         try:
@@ -31,7 +31,7 @@ class DietPlanEndpoint:
 
 
     @staticmethod
-    @dietBlueprint.route("/<string:mongo_id>/get", methods=['GET'])
+    @diet.route("/<string:mongo_id>/get", methods=['GET'])
     def getUserMealPlans(mongo_id):
         print(mongo_id)
         try:
