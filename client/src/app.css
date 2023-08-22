@@ -1,0 +1,14 @@
+.chatbot {
+    opacity: 1; 
+    transition: opacity 4s ease-out; 
+}
+
+.chatbot-close {
+    opacity: 0; 
+}
+
+.secondary{
+    background-color: #9EB384;
+}
+
+

@@ -5,3 +5,4 @@ WTForms
 pymongo
 openai
 python-dotenv
+flask_cors
