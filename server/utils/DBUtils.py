@@ -16,8 +16,8 @@ class DBUtils():
         return user
 
     def findUserByUsername(self, username):
-        self.users_collection.find_one({"username": username})
-        return username
+        user = self.users_collection.find_one({"username": username})
+        return user
 
     def findUserById(self, id):
         user = self.users_collection.find_one({"_id": id})

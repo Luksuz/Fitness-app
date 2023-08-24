@@ -17,7 +17,7 @@ class UserService:
         if username is not None and username != "" and password is not None and password != "":
             user = self.dBUtil.findUserByUsername(username)
             if user is not None:
-                if password == dto.password:
+                if password == user["password"]:
                     print("login successful")
                     return user
                 else:

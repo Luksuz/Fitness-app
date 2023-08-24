@@ -16,7 +16,6 @@ class UserEndpoint:
         user = UserDto()
         user.username = request.json["username"]
         user.email = request.json["email"]
-        user.age = request.json["age"]
         user.password = request.json["password"]
         registeredUser = userService.registerUser(user)
         return ResponseUtil.buildResponse(registeredUser)
@@ -31,8 +30,6 @@ class UserEndpoint:
     @users.route("/<int:id>", methods=['PUT'])
     def updateUser(id):
         pass
-
-
 
 
     @staticmethod

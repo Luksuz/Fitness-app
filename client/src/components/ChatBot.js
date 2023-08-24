@@ -1,6 +1,6 @@
 import "./chatBot.css";
 import { useState, useEffect, useRef } from "react";
-import getChatBotResponse from "../api";
+import getChatBotResponse from "../api/chatbot";
 
 function ChatBot({setUserTrainingPlan, setUserDietPlan, setHasAllUserData }) {
   const [currentMessage, setCurrentMessage] = useState("");
