@@ -64,7 +64,7 @@ console.log(messagesHistory)
         <h2 className="p-3 rounded-bottom">
           Ronnie
         </h2>
-          <img src="./images/coleman.webp" className="img-fluid" />
+          <img src="./images/coleman.webp" className="img-fluid" alt="ronnie coleman" />
         </div>     
         <div className="flex-grow-1 d-flex flex-column conversation-container">
           {chat}

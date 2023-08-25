@@ -10,7 +10,7 @@ export default function Login({ setIsLoggedIn, setUsername }) {
     let userData;
     userData = await validateLogin(localUsername, localPassword);
     console.log("userData is : " + userData.data);
-    if( userData.code == 200){
+    if( userData.code === 200){
         setUsername(userData.data.username);
         setIsLoggedIn(true);
         console.log("sucessfully logged in")
