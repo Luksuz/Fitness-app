@@ -2,7 +2,6 @@ import ChatBot from "./components/ChatBot";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.css";
-import Registration from "./Register";
 import Login from "./Login";
 
 
@@ -11,8 +10,7 @@ function App() {
   const [userDietPlan, setUserDietPlan] = useState("")
   const [hasAllUserData, setHasAllUserData] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [username, setUsername] = useState('')
-
+  //const [username, setUsername] = useState("")
   console.log(userTrainingPlan)
   console.log(userDietPlan)
 
@@ -22,7 +20,7 @@ function App() {
       <div className="row" style={{background: "#CEDEBD"}}>
         <h1>Your Personal Trainer</h1>
         <ul className="d-flex">
-          <li><a>Create a plan</a></li>
+          <li>Create a plan</li>
           <li>Your plans</li>
           <li>Login</li>
         </ul>
@@ -52,7 +50,7 @@ function App() {
     : 
     <Login 
     setIsLoggedIn={setIsLoggedIn}
-    setUsername={setUsername}
+    //setUsername={setUsername}
     />
   );
 }

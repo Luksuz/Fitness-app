@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import validateLogin from './api/login';
 
-export default function Login({ setIsLoggedIn, setUsername }) {
+export default function Login({ setIsLoggedIn }) {
   const [localUsername, setLocalUsername] = useState('');
   const [localPassword, setLocalPassword] = useState('');
 
@@ -11,7 +11,7 @@ export default function Login({ setIsLoggedIn, setUsername }) {
     userData = await validateLogin(localUsername, localPassword);
     console.log("userData is : " + userData.data);
     if( userData.code === 200){
-        setUsername(userData.data.username);
+        //setUsername(userData.data.username);
         setIsLoggedIn(true);
         console.log("sucessfully logged in")
     }else{
