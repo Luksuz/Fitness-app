@@ -1,7 +1,8 @@
 import ChatBot from "./components/ChatBot";
+import { useState } from "react";
 
 
-export default function Dashboard({ userTrainingPlan, setUserTrainingPlan, userDietPlan, setUserDietPlan, hasAllUserData, setHasAllUserData }) {
+export default function Dashboard() {
     const [userTrainingPlan, setUserTrainingPlan] = useState("");
     const [userDietPlan, setUserDietPlan] = useState("");
     const [hasAllUserData, setHasAllUserData] = useState(false);
