@@ -9,9 +9,6 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import { AuthProvider } from "./auth/AuthContext";
 
 function App() {
-  const [userTrainingPlan, setUserTrainingPlan] = useState("");
-  const [userDietPlan, setUserDietPlan] = useState("");
-  const [hasAllUserData, setHasAllUserData] = useState(false);
 
   return (
     <AuthProvider>

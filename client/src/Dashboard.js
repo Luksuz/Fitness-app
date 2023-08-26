@@ -2,6 +2,10 @@ import ChatBot from "./components/ChatBot";
 
 
 export default function Dashboard({ userTrainingPlan, setUserTrainingPlan, userDietPlan, setUserDietPlan, hasAllUserData, setHasAllUserData }) {
+    const [userTrainingPlan, setUserTrainingPlan] = useState("");
+    const [userDietPlan, setUserDietPlan] = useState("");
+    const [hasAllUserData, setHasAllUserData] = useState(false);
+    
     return (
       <div className="container d-flex flex-column">
         <div className="row" style={{ background: "#CEDEBD" }}>
