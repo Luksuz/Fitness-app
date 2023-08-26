@@ -1,7 +1,7 @@
 
 
 async function validateRegistration(username, password, email){
-    const response = await fetch("http://localhost:5000/users/registration", {
+    const response = await fetch("https://fitness-app-396719.ew.r.appspot.com/users/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

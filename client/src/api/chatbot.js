@@ -1,6 +1,6 @@
 async function getChatBotResponse( messagesHistory, setMessagesHistory, setUserTrainingPlan, setUserDietPlan, setHasAllUserData ) {
   console.log("this is the messagesHistory: " + messagesHistory)
-    const response = await fetch("http://localhost:5000/chatbot/chatbot", {
+    const response = await fetch("https://fitness-app-396719.ew.r.appspot.com/chatbot/chatbot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
