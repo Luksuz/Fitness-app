@@ -1,8 +1,0 @@
-flask
-flask_sqlalchemy
-Flask-WTF
-WTForms
-pymongo
-openai
-python-dotenv
-flask_cors

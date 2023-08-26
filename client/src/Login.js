@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import validateLogin from './api/login';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './auth/AuthContext';
 
-export default function Login({ setIsLoggedIn }) {
+export default function Login() {
   const [localUsername, setLocalUsername] = useState('');
   const [localPassword, setLocalPassword] = useState('');
+  const { setIsAuthenticated } = useAuth();
+
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let userData;
-    userData = await validateLogin(localUsername, localPassword);
+    const userData = await validateLogin(localUsername, localPassword);
     console.log("userData is : " + userData.data);
     if( userData.code === 200){
-        //setUsername(userData.data.username);
-        setIsLoggedIn(true);
-        console.log("sucessfully logged in")
+      setIsAuthenticated(true);
+      navigate("/dashboard");
     }else{
-        alert("Invalid username or password");
+      alert("Invalid username or password");
     }
-}
+  }
 
   return (
     <div className="container">

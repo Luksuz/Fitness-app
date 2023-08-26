@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import validateRegistration from "./api/registration";
+import { useNavigate } from 'react-router-dom';
 
 export default function Registration() {
   const [username, setUsername] = useState('');
@@ -7,9 +8,18 @@ export default function Registration() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  function handleSubmit(event) {
+  const navigate = useNavigate();
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    validateRegistration(username, password, email);
+    let validated = await validateRegistration(username, password, email);
+    console.log(validated);
+    if(validated.code === 200){
+      navigate("/login");
+    }
+    else{
+      alert("email already in use");
+    }
   }
 
   return (
