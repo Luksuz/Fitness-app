@@ -29,25 +29,24 @@ export default function Nav() {
             <div className="d-none d-lg-block">
               <ul className="gap-3">
                 <li>
-                  <a href="#" onClick={handleDashboardClick}>
+                  <Button onClick={handleDashboardClick}>
                     Dashboard
-                  </a>
+                  </Button>
                 </li>
                 <li>
-                  <a href="#" onClick={handlePlansClick}>
+                  <Button onClick={handlePlansClick}>
                     My plans
-                  </a>
+                  </Button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Button
                     onClick={() => {
                       sessionStorage.clear();
                       navigate("/login");
                     }}
                   >
                     Logout
-                  </a>
+                  </Button>
                 </li>
               </ul>
             </div>
@@ -63,25 +62,25 @@ export default function Nav() {
                 <Offcanvas.Body>
                 <ul className="gap-3">
                 <li>
-                  <a href="#" onClick={handleDashboardClick}>
+                  <Button  onClick={handleDashboardClick}>
                     Dashboard
-                  </a>
+                  </Button>
                 </li>
                 <li>
-                  <a href="#" onClick={handlePlansClick}>
+                  <Button  onClick={handlePlansClick}>
                     My plans
-                  </a>
+                  </Button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Button
+                    
                     onClick={() => {
                       sessionStorage.clear();
                       navigate("/login");
                     }}
                   >
                     Logout
-                  </a>
+                  </Button>
                 </li>
               </ul>
                 </Offcanvas.Body>
