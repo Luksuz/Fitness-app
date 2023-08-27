@@ -11,7 +11,7 @@ export default function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {   
-        if (userTrainingPlan && userDietPlan) {
+        if (hasAllUserData) {
             const userID = sessionStorage.getItem("userID")
             const maintananceCalories = localStorage.getItem("maintananceCalories")
             const goal = localStorage.getItem("goal")
