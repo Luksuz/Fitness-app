@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import validateLogin from './api/login';
-import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import React, { useState, useEffect } from "react";
+import validateLogin from "./api/login";
+import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 export default function Login() {
-  const [localUsername, setLocalUsername] = useState('');
-  const [localPassword, setLocalPassword] = useState('');
+  const [localUsername, setLocalUsername] = useState("");
+  const [localPassword, setLocalPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -17,11 +17,10 @@ export default function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     const userData = await validateLogin(localUsername, localPassword);
-    console.log("userData is : " + userData.data);
-    if( userData.code === 200){
+    if (userData.code === 200) {
       sessionStorage.setItem("userID", userData.data._id);
       navigate("/dashboard");
-    }else{
+    } else {
       alert("Invalid username or password");
     }
   }
@@ -32,7 +31,7 @@ export default function Login() {
         <div className="col-12 col-md-6">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
-          <div className="form-group">
+            <div className="form-group">
               <label htmlFor="usernameInput">Username</label>
               <input
                 type="username"
@@ -40,9 +39,9 @@ export default function Login() {
                 id="usernameInput"
                 value={localUsername}
                 onChange={(e) => setLocalUsername(e.target.value)}
-                />
+              />
             </div>
-           
+
             <div className="form-group">
               <label htmlFor="passwordInput">Password</label>
               <input
@@ -57,9 +56,9 @@ export default function Login() {
               Submit
             </button>
           </form>
-          <div className='d-flex flex-column justify-content-center align-items-center mt-4'>
+          <div className="d-flex flex-column justify-content-center align-items-center mt-4">
             <p>Still dont have an account?</p>
-            <Button onClick={handleRegistrationNav} >Login</Button>
+            <Button onClick={handleRegistrationNav}>Login</Button>
           </div>
         </div>
       </div>
