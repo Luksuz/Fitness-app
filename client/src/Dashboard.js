@@ -2,6 +2,7 @@ import ChatBot from "./components/ChatBot";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { insertUserPlans } from "./api/userPlans";
+import Button from "react-bootstrap/Button";
 
 
 export default function Dashboard() {
@@ -20,6 +21,7 @@ export default function Dashboard() {
             const healthIssues = localStorage.getItem("healthIssues")
             insertUserPlans(userID, userDietPlan, userTrainingPlan, maintananceCalories, goal, cutBulkRate, workoutExperience, healthIssues);
             localStorage.clear();
+        //eslint-disable-next-line
         }}, [hasAllUserData]);
 
     function handleClick(){
@@ -31,7 +33,7 @@ export default function Dashboard() {
         <div className="row" style={{ background: "#CEDEBD" }}>
           <h1>Your Personal Trainer</h1>
           <ul className="d-flex">
-            <li><a href="" onClick={handleClick}>My plans</a></li>
+            <li><Button onClick={handleClick}>My plans</Button></li>
             <li>Your plans</li>
             <li>Login</li>
           </ul>
