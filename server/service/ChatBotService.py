@@ -44,7 +44,7 @@ class ChatBotService:
         userPlanDto.workoutExperience = lastMessage.split(":")[5].strip("Health Issues")
         for i in lastMessage.split(":")[6]:
             string = ""
-            if i == "/n":
+            if i == "/":
                 userPlanDto.healthIssues = string
                 break
             else:
@@ -65,8 +65,8 @@ class ChatBotService:
                     f"these are the available excersises: {excersises}"
                     f"Here are some exapmles of training plans:"
                     f"###"
-                    f"Workout Experience: {userLifestyleDto.workoutExperience}"
-                    f"Health Issues: {userLifestyleDto.healthIssues}"
+                    f"Workout Experience: advanced"
+                    f"Health Issues: none"
                     f"Workout Plan:"
                     """Bro Split
                     Day 1: 

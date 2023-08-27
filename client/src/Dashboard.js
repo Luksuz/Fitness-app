@@ -1,15 +1,13 @@
 import ChatBot from "./components/ChatBot";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { insertUserPlans } from "./api/userPlans";
-import Button from "react-bootstrap/Button";
+import Nav from "./components/Navbar";
 
 
 export default function Dashboard() {
     const [userTrainingPlan, setUserTrainingPlan] = useState("");
     const [userDietPlan, setUserDietPlan] = useState("");
     const [hasAllUserData, setHasAllUserData] = useState(false);
-    const navigate = useNavigate();
 
     useEffect(() => {   
         if (hasAllUserData) {
@@ -23,20 +21,11 @@ export default function Dashboard() {
             localStorage.clear();
         //eslint-disable-next-line
         }}, [hasAllUserData]);
-
-    function handleClick(){
-        navigate('/userplans');
-    }
     
     return (
       <div className="container d-flex flex-column">
         <div className="row" style={{ background: "#CEDEBD" }}>
-          <h1>Your Personal Trainer</h1>
-          <ul className="d-flex">
-            <li><Button onClick={handleClick}>My plans</Button></li>
-            <li>Your plans</li>
-            <li>Login</li>
-          </ul>
+          <Nav />
         </div>
 
         {hasAllUserData && <div className="row justify-content-center">

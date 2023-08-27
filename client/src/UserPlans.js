@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getUserPlans } from './api/userPlans';
+import Nav from "./components/Navbar";
 
 export default function UserPlans() {
     const [userPlans, setUserPlans] = useState([]);
@@ -23,7 +24,7 @@ export default function UserPlans() {
 
     return(
         <div>
-            <h1>My plans</h1>
+            <Nav />
             <pre>{mapppedUserPlans}</pre>
         </div>
 

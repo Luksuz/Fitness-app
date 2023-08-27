@@ -1,6 +1,6 @@
 
 async function insertUserPlans(id, dietPlan, trainingPlan, maintananceCalories, goal, cutBulkRate, workoutExperience, healthIssues){
-    const response = await fetch("https://fitness-app-396719.ew.r.appspot.com/users/insertPlan", {
+    const response = await fetch("http://localhost:5000/users/insertPlan", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -12,7 +12,7 @@ async function insertUserPlans(id, dietPlan, trainingPlan, maintananceCalories, 
 }
 
 async function getUserPlans(id){
-    const response = await fetch(`https://fitness-app-396719.ew.r.appspot.com/users/getPlans/${id}`, {
+    const response = await fetch(`http://localhost:5000/users/getPlans/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
