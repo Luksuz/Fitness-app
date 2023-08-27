@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import validateRegistration from "./api/registration";
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 export default function Registration() {
   const [username, setUsername] = useState('');
@@ -9,6 +10,11 @@ export default function Registration() {
   const [email, setEmail] = useState('');
 
   const navigate = useNavigate();
+
+  function handleLoginNav(event) {
+    event.preventDefault();
+    navigate("/login");
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -23,9 +29,9 @@ export default function Registration() {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-6">
+    <div className="container d-flex flex-column">
+      <div className="row justify-content-center align-items-center">
+        <div className="col-12 col-md-6" >
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -68,10 +74,14 @@ export default function Registration() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <Button type="submit" className="btn btn-success mt-2">
               Submit
-            </button>
+            </Button>
           </form>
+          <div className='d-flex flex-column justify-content-center align-items-center mt-4'>
+            <p>Already have an account?</p>
+            <Button onClick={handleLoginNav} >Login</Button>
+          </div>
         </div>
       </div>
     </div>

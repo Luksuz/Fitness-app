@@ -7,5 +7,4 @@ db = client['DietAndExerciseApp']
 
 # Create or select collections
 users_collection = db['users']
-diet_plans_collection = db['dietPlans']
-exercise_plans_collection = db['exercisePlans']
+userPlans= db['userPlans']

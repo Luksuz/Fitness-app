@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import validateLogin from './api/login';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './auth/AuthContext';
+import Button from 'react-bootstrap/Button';
 
 export default function Login() {
   const [localUsername, setLocalUsername] = useState('');
@@ -10,11 +11,17 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  function handleRegistrationNav(event) {
+    event.preventDefault();
+    navigate("/");
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     const userData = await validateLogin(localUsername, localPassword);
     console.log("userData is : " + userData.data);
     if( userData.code === 200){
+      sessionStorage.setItem("userID", userData.data._id);
       setIsAuthenticated(true);
       navigate("/dashboard");
     }else{
@@ -24,7 +31,7 @@ export default function Login() {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row d-flex flex-column justify-content-center align-items-center">
         <div className="col-12 col-md-6">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
@@ -49,10 +56,14 @@ export default function Login() {
                 onChange={(e) => setLocalPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success mt-2">
               Submit
             </button>
           </form>
+          <div className='d-flex flex-column justify-content-center align-items-center mt-4'>
+            <p>Still dont have an account?</p>
+            <Button onClick={handleRegistrationNav} >Login</Button>
+          </div>
         </div>
       </div>
     </div>

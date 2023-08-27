@@ -1,6 +1,6 @@
 from utils.DBUtils import DBUtils
-from datasource.dto.UserLifestyleDto import UserLifestyleDto
 import excersisesData as excersises
+from datasource.dto.UserPlanDto import UserPlanDto
 import openai
 
 # api config
@@ -20,30 +20,37 @@ class ChatBotService:
         print(message.content)
         if ":" in message.content:
             print("entered extracting preferences")
-            dto = self.extractPreferences(message.content)
-            print(dto)
-            dietPlan = self.createDietPlan(dto)
-            trainingPlan = self.createTrainingPlan(dto)
-            return message, dietPlan, trainingPlan
+            preferencesDto = self.extractPreferences(message.content)
+            print(preferencesDto)
+            dietPlan = self.createDietPlan(preferencesDto)
+            trainingPlan = self.createTrainingPlan(preferencesDto)
+            return (message, 
+                    dietPlan, 
+                    trainingPlan, 
+                    preferencesDto.maintananceCalories, 
+                    preferencesDto.goal, 
+                    preferencesDto.cutBulkRate, 
+                    preferencesDto.workoutExperience, 
+                    preferencesDto.healthIssues)
         else:
-            return message, None, None
+            return message, None, None, None, None, None, None, None
 
     # helper method to extract preferences from chatbot response
     def extractPreferences(self, lastMessage):
-        userLifestyleDto = UserLifestyleDto()
-        userLifestyleDto.maintananceCalories = lastMessage.split(":")[2].strip("Goal")
-        userLifestyleDto.goal = lastMessage.split(":")[3].strip("Cut/Bulk Rate")
-        userLifestyleDto.cutBulkRate = lastMessage.split(":")[4].strip("Workout Experience")
-        userLifestyleDto.workoutExperience = lastMessage.split(":")[5].strip("Health Issues")
+        userPlanDto = UserPlanDto()
+        userPlanDto.maintananceCalories = lastMessage.split(":")[2].strip("Goal")
+        userPlanDto.goal = lastMessage.split(":")[3].strip("Cut/Bulk Rate")
+        userPlanDto.cutBulkRate = lastMessage.split(":")[4].strip("Workout Experience")
+        userPlanDto.workoutExperience = lastMessage.split(":")[5].strip("Health Issues")
         for i in lastMessage.split(":")[6]:
             string = ""
             if i == "/n":
-                userLifestyleDto.healthIssues = string
+                userPlanDto.healthIssues = string
                 break
             else:
                 string += i
-        print(userLifestyleDto)
-        return userLifestyleDto
+        print(userPlanDto)
+        return userPlanDto
 
     def createTrainingPlan(self, userLifestyleDto):
         """userID = userLifestyleDto.userID

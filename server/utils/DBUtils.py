@@ -8,8 +8,7 @@ class DBUtils():
         self.client = client = MongoClient(connection_string)
         self.db = client['fitnessAppDB']
         self.users_collection = self.db['users']
-        self.diet_plans_collection = self.db['dietPlans']
-        self.exercise_plans_collection = self.db['exercisePlans']
+        self.diet_plans_collection = self.db['userPlans']
 
     def insertUser(self, user):
         self.users_collection.insert_one(user)
@@ -23,11 +22,11 @@ class DBUtils():
         user = self.users_collection.find_one({"_id": id})
         return user
 
-    def insertMealPlan(self, dietDto):
-        self.diet_plans_collection.insert_one(dietDto)
-        return dietDto
+    def insertUserPlan(self, userPlanDto):
+        self.diet_plans_collection.insert_one(userPlanDto)
+        return userPlanDto
 
-    def getDietPlans(self, userID):
+    def getUserPlans(self, userID):
         dietPlansCursor = self.diet_plans_collection.find({"userID": userID})
         dietPlansList = list(dietPlansCursor)
         print(dietPlansList)
