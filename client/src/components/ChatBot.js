@@ -19,7 +19,6 @@ function ChatBot({setUserTrainingPlan, setUserDietPlan, setHasAllUserData }) {
                               Cut/bulk rate: (kg/week)
                               Workout experience: 
                               Health issues: `
-
      },
     {role: "user", content: "Hey Ronnie!"},
     {role: "assistant", content: "Hey, im Ronnie Coleman, the legendary bodybuilder and 8x Mr. Olympia, how can i help you?"},
