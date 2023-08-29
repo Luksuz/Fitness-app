@@ -60,7 +60,7 @@ export default function Nav() {
           </div>
           <div className="d-lg-none">
             <Button variant="primary" onClick={handleShow}>
-              <img src="./images/menu.png" width={iconSize} />
+              <img src="./images/menu.png" width={iconSize} alt="menu"/>
             </Button>
 
             <Offcanvas show={show} onHide={handleClose}>
