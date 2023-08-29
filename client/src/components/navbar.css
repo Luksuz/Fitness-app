@@ -1,0 +1,14 @@
+li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+li:hover{
+    background-color: #9EB384;
+}

@@ -58,15 +58,22 @@ class UserEndpoint:
         return ResponseUtil.buildResponse(loggedUser)
 
     @staticmethod
-    @users.route("/test-token", methods=['GET'])
-    def testToken():
-        pass
+    @users.route("/changePassword", methods=['PUT'])
+    def changePassword():
+        id = request.json["id"]
+        password = request.json["password"]
+        user = userService.changePassword(id, password)
+        return ResponseUtil.buildResponse(user)
 
 
     @staticmethod
-    @users.route('/test-user-type', methods=['GET'])
-    def testUserType():
-        pass
+    @users.route('/deleteUser', methods=['DELETE'])
+    def deleteUser():
+        id = request.json["id"]
+        password = request.json["password"]
+        deletedUser = userService.deleteUser(id, password)
+        return ResponseUtil.buildResponse(deletedUser)
+
 
 
 

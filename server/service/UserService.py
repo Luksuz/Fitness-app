@@ -28,24 +28,13 @@ class UserService:
                 return None
 
         return None
+    
+    def changePassword(self, id, password):
+        return self.dBUtil.changePassword(id, password)
 
-    def findById(self, id):
-        pass
+    def deleteUser(self, id, password):
+        return self.dBUtil.deleteUser(id, password)
 
-    def findAll(self):
-        pass
-
-    def updateUser(self, id, dto):
-        pass
-
-    def findByUsername(self, username):
-        pass
-
-    def findAllByType(self, type):
-        pass
-
-    def findByEmail(self, email):
-        pass
 
 
 

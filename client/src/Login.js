@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import validateLogin from "./api/login";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -16,6 +16,7 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    sessionStorage.clear();
     const userData = await validateLogin(localUsername, localPassword);
     if (userData.code === 200) {
       sessionStorage.setItem("userID", userData.data._id);
@@ -24,6 +25,7 @@ export default function Login() {
       alert("Invalid username or password");
     }
   }
+
 
   return (
     <div className="container">
@@ -58,7 +60,7 @@ export default function Login() {
           </form>
           <div className="d-flex flex-column justify-content-center align-items-center mt-4">
             <p>Still dont have an account?</p>
-            <Button onClick={handleRegistrationNav}>Login</Button>
+            <Button onClick={handleRegistrationNav}>Register</Button>
           </div>
         </div>
       </div>

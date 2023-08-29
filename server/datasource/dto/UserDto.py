@@ -13,12 +13,3 @@ class UserDto():
             "password": self.password,
         }
         return model
-
-    @staticmethod
-    def mapFromEntity(entity):
-        dto = UserDto()
-        dto.username = entity.username
-        dto.email = entity.email
-        dto.age = entity.age
-        dto.password = entity.password
-        return dto
