@@ -21,7 +21,9 @@ function App() {
           <Route path="/userPlans" element={<UserPlans />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/chatbotPanel" element={
+            <ProtectedRoute>
               <ChatbotPanel />
+            </ProtectedRoute>
           } />
         </Routes>
       </Router>
