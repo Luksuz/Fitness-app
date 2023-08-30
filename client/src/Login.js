@@ -24,7 +24,7 @@ export default function Login() {
     if (userData.code === 200) {
       setIsAuthenticated(true);
       sessionStorage.setItem("userID", userData.data._id);
-      navigate("/dashboard");
+      navigate("/chatbotPanel");
       console.log("logged in");
     } else {
       alert("Invalid username or password");
