@@ -25,8 +25,8 @@ export default function ChatbotPanel() {
         }}, [hasAllUserData]);
     
     return (
-      <div className="container d-flex flex-column">
-        <div className="row" style={{ background: "#CEDEBD" }}>
+      <div className="d-flex flex-column">
+        <div className="row">
           <Nav
           isChatbotPanel={true}
           setChatbotShow={setChatbotShow}

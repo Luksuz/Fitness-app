@@ -34,10 +34,10 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
   }
 
   return (
-    <>
-      <Navbar className="bg-body-tertiary ">
+    <div className="shadow-lg mb-3">
+      <Navbar>
         <Container>
-          <Navbar.Brand href="#home">GetActive</Navbar.Brand>
+          <Navbar.Brand href="#home" className="fs-3">GetActive</Navbar.Brand>
           <div className="d-none d-lg-block">
             <ul className="d-flex gap-2 text-center justify-content-center align-items-center">
               <li onClick={handleDashboardClick}>
@@ -47,7 +47,7 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
                   className="me-1"
                   alt="chat bot"
                 />
-                Dashboard
+                Chatbot panel
               </li>
               <li onClick={handlePlansClick}>
                 <img
@@ -144,6 +144,6 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
           </div>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 }
