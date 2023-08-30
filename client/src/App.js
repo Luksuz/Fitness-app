@@ -3,7 +3,7 @@ import "./app.css";
 import Login from "./Login";
 import Register from "./Register";
 import UserPlans from "./UserPlans";
-import Dashboard from "./Dashboard";
+import ChatbotPanel from "./ChatbotPanel";
 import Settings from "./Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./auth/ProtectedRoute";
@@ -20,10 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/userPlans" element={<UserPlans />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/dashboard" element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
+          <Route path="/chatbotPanel" element={
+              <ChatbotPanel />
           } />
         </Routes>
       </Router>

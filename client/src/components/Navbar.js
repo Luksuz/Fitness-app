@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const iconSize = "30px";
 
-export default function Nav() {
+export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Nav() {
   }
 
   function handleDashboardClick() {
-    navigate("/dashboard");
+    navigate("/chatbotPanel");
   }
 
   function handleSettingsClick() {
@@ -39,30 +39,67 @@ export default function Nav() {
         <Container>
           <Navbar.Brand href="#home">GetActive</Navbar.Brand>
           <div className="d-none d-lg-block">
-            <ul className="d-flex gap-5 text-center justify-content-center align-items-center">
+            <ul className="d-flex gap-2 text-center justify-content-center align-items-center">
               <li onClick={handleDashboardClick}>
-                <img src="./images/bot.png" width={iconSize} className="me-1" alt="chat bot"/>
+                <img
+                  src="./images/bot.png"
+                  width={iconSize}
+                  className="me-1"
+                  alt="chat bot"
+                />
                 Dashboard
               </li>
               <li onClick={handlePlansClick}>
-                <img src="./images/nutrition.png" width={iconSize} alt="plans"/>
+                <img
+                  src="./images/nutrition.png"
+                  width={iconSize}
+                  alt="plans"
+                />
                 My plans
               </li>
               <li onClick={handleLogoutClick}>
-                <img src="./images/logout.png" width={iconSize} className="me-1" alt="logout"/>
+                <img
+                  src="./images/logout.png"
+                  width={iconSize}
+                  className="me-1"
+                  alt="logout"
+                />
                 Logout
               </li>
               <li onClick={handleSettingsClick}>
-                <img src="./images/settings.png" width={iconSize} className="me-1" alt="menu"/>
+                <img
+                  src="./images/settings.png"
+                  width={iconSize}
+                  className="me-1"
+                  alt="menu"
+                />
                 Settings
               </li>
+              {isChatbotPanel && (
+                <Button
+                  variant="primary"
+                  onClick={() => setChatbotShow(!chatbotShow)}
+                  className="me-3"
+                >
+                  <img src="./images/bot.png" width={iconSize} alt="menu" />
+                </Button>
+              )}
             </ul>
           </div>
-          <div className="d-lg-none">
-            <Button variant="primary" onClick={handleShow}>
-              <img src="./images/menu.png" width={iconSize} alt="menu"/>
-            </Button>
 
+          <div className="d-lg-none">
+            {isChatbotPanel && (
+              <Button
+                variant="primary"
+                onClick={() => setChatbotShow(!chatbotShow)}
+                className="me-3"
+              >
+                <img src="./images/bot.png" width={iconSize} alt="chat bot" />
+              </Button>
+            )}
+            <Button variant="primary" onClick={handleShow}>
+              <img src="./images/menu.png" width={iconSize} alt="menu" />
+            </Button>
             <Offcanvas show={show} onHide={handleClose}>
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Menu</Offcanvas.Title>
@@ -70,19 +107,35 @@ export default function Nav() {
               <Offcanvas.Body>
                 <ul className="d-flex flex-column gap-2">
                   <li onClick={handleDashboardClick} className="p-2 rounded-3">
-                    <img src="./images/bot.png" width={iconSize} alt="chat bot"/>
+                    <img
+                      src="./images/bot.png"
+                      width={iconSize}
+                      alt="chat bot"
+                    />
                     Dashboard
                   </li>
                   <li onClick={handlePlansClick} className="p-2 rounded-3">
-                    <img src="./images/nutrition.png" width={iconSize} alt="plans"/>
+                    <img
+                      src="./images/nutrition.png"
+                      width={iconSize}
+                      alt="plans"
+                    />
                     My plans
                   </li>
                   <li onClick={handleLogoutClick} className="p-2 rounded-3">
-                    <img src="./images/logout.png" width={iconSize} alt="logout"/>
+                    <img
+                      src="./images/logout.png"
+                      width={iconSize}
+                      alt="logout"
+                    />
                     Logout
                   </li>
                   <li onClick={handleSettingsClick} className="p-2 rounded-3">
-                    <img src="./images/settings.png" width={iconSize} alt="settings"/>
+                    <img
+                      src="./images/settings.png"
+                      width={iconSize}
+                      alt="settings"
+                    />
                     Settings
                   </li>
                 </ul>
