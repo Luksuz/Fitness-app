@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import validateLogin from "./api/login";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useAuth } from "./auth/AuthContext";
 
 export default function Login() {
   const [localUsername, setLocalUsername] = useState("");
   const [localPassword, setLocalPassword] = useState("");
+  const { setIsAuthenticated } = useAuth();
+
 
   const navigate = useNavigate();
 
@@ -19,6 +22,7 @@ export default function Login() {
     sessionStorage.clear();
     const userData = await validateLogin(localUsername, localPassword);
     if (userData.code === 200) {
+      setIsAuthenticated(true);
       sessionStorage.setItem("userID", userData.data._id);
       navigate("/dashboard");
       console.log("logged in");
