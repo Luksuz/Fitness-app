@@ -21,6 +21,7 @@ export default function Login() {
     if (userData.code === 200) {
       sessionStorage.setItem("userID", userData.data._id);
       navigate("/dashboard");
+      console.log("logged in");
     } else {
       alert("Invalid username or password");
     }
