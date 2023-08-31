@@ -50,7 +50,7 @@ export default function UserPlans() {
           <Modal.Body>
             <pre>{plan.dietPlan}</pre>
             <br />
-            <pre>{plan.trainingPlan}</pre>
+            <pre dangerouslySetInnerHTML={{ __html: plan.trainingPlan }}></pre>
           </Modal.Body>
 
           <Modal.Footer>

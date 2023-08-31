@@ -18,7 +18,6 @@ async function getChatBotResponse( messagesHistory, setMessagesHistory, setUserT
     localStorage.setItem("workoutExperience", workoutExperience);
     localStorage.setItem("healthIssues", healthIssues);
     }
-    
 
     
     console.log(data)

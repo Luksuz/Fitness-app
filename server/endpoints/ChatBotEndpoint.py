@@ -12,7 +12,6 @@ class ChatBotEndpoint:
     @staticmethod
     @chatbot.route("/chatbot", methods=["POST"])
     def getChatbotResponse():
-        print("server working")
         messagesHistory = request.json["message"]
         chatbotService = ChatBotService()
         message, dietPlan, trainingPlan, maintananceCalories, goal, cutBulkRate, workoutExperience, healthIssues  = chatbotService.interactWithChatbot(messagesHistory)

@@ -2,6 +2,8 @@ from utils.DBUtils import DBUtils
 import excersisesData as excersises
 from datasource.dto.UserPlanDto import UserPlanDto
 import openai
+from excersisesData.excersisesData import excersises
+from excersisesData.excersisesData import embeddifyExercises
 
 # api config
 from dotenv import load_dotenv
@@ -235,8 +237,9 @@ class ChatBotService:
             temperature=0
             )
         message = response.choices[0].text
-        print(message)
-        return message
+        embeddedMessage = embeddifyExercises(excersises, message)
+        print(embeddedMessage)
+        return embeddedMessage
 
     def createDietPlan(self, userLifestyleDto):
         """userID = userLifestyleDto.userID

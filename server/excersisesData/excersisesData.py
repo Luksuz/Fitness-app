@@ -1,4 +1,4 @@
-excersisesData = {
+excersises = {
     "Squat": "https://www.youtube.com/shorts/MLoZuAkIyZI",
     "Deadlift": "https://www.youtube.com/shorts/vfKwjT5-86k",
     "Bench Press": "https://www.youtube.com/shorts/0cXAp6WhSj4",
@@ -60,5 +60,11 @@ excersisesData = {
     "Dumbbell Pullover": "https://www.youtube.com/watch?v=FK4rHfWKEac",
     "Hyperextension (Back Extension)": "https://www.youtube.com/watch?v=H8Swl1N-uis",
     "Seated Dumbell Rear Delt Raise": "https://www.youtube.com/watch?v=p1yQnTNE808"
-
 }
+
+def embeddifyExercises(excersises, exercisePlan):
+    for key in excersises:
+        if excersises[key]:  
+            link = f'<a href="{excersises[key]}">{key}</a>'
+            exercisePlan = exercisePlan.replace(key, link)
+    return exercisePlan
