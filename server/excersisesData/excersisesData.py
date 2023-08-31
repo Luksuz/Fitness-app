@@ -1,4 +1,7 @@
 excersises = {
+    "Lateral Raises": "https://www.youtube.com/watch?v=3VcKaXpzqRo&t=51s",
+    "Incline Dumbell Bench Press": "https://www.youtube.com/watch?v=8iPEnn-ltC8",
+    "Bulgarian Split Squat": "https://www.youtube.com/shorts/uODWo4YqbT8",
     "Squat": "https://www.youtube.com/shorts/MLoZuAkIyZI",
     "Deadlift": "https://www.youtube.com/shorts/vfKwjT5-86k",
     "Bench Press": "https://www.youtube.com/shorts/0cXAp6WhSj4",
@@ -8,7 +11,6 @@ excersises = {
     "Chin-Up": "https://www.youtube.com/shorts/Oi3bW9nQmGI",
     "Leg Press": "https://www.youtube.com/shorts/LG2L25PkeYU",
     "Lunges": "https://www.youtube.com/shorts/LCWWq3Lx2Sk",
-    "Bulgarian Split Squat": "https://www.youtube.com/shorts/uODWo4YqbT8",
     "Push-Up": "https://www.youtube.com/shorts/ba8tr1NzwXU",
     "Dips": "https://www.youtube.com/shorts/ci5tcFgIntI",
     "Plank": "https://www.youtube.com/shorts/2xc9W2bdsJs",
@@ -25,7 +27,7 @@ excersises = {
     "Seated Calf Raise": "https://www.youtube.com/shorts/pHm6LFuGGbs",
     "Leg Curl": "https://www.youtube.com/shorts/7PE3MlvGAts",
     "Leg Extension": "https://www.youtube.com/watch?v=ljO4jkwv8wQ",
-    "Lat Pull-Down": "https://www.youtube.com/watch?v=XA4ZmYeFsW8",
+    "Lat Pull Down": "https://www.youtube.com/watch?v=XA4ZmYeFsW8",
     "Face Pull": "https://www.youtube.com/shorts/IUdME60uDeU",
     "T-Bar Row": "https://www.youtube.com/shorts/MIulz5576AY",
     "Dumbbell Fly": "https://www.youtube.com/watch?v=QENKPHhQVi4",
@@ -59,7 +61,7 @@ excersises = {
     "Cable Lateral Raise": "https://www.youtube.com/watch?v=PPrzBWZDOhA",
     "Dumbbell Pullover": "https://www.youtube.com/watch?v=FK4rHfWKEac",
     "Hyperextension (Back Extension)": "https://www.youtube.com/watch?v=H8Swl1N-uis",
-    "Seated Dumbell Rear Delt Raise": "https://www.youtube.com/watch?v=p1yQnTNE808"
+    "Rear Delt Flyes": "https://www.youtube.com/watch?v=p1yQnTNE808"
 }
 
 def embeddifyExercises(excersises, exercisePlan):

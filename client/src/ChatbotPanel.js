@@ -38,7 +38,7 @@ export default function ChatbotPanel() {
         <div className="row justify-content-center">
           <div className="col-10 col-lg-5 border m-1 secondary">
             <h2 className="mb-4">Your Training Plan</h2>
-            <pre>{userTrainingPlan}</pre>
+            <pre dangerouslySetInnerHTML={{ __html: userTrainingPlan }}></pre>
           </div>
           <div className="col-10 col-lg-5 border m-1 secondary">
             <h2 className="mb-4">Your Diet Plan</h2>
