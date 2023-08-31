@@ -2,6 +2,7 @@ import ChatBot from "./components/ChatBot";
 import { useEffect, useState } from "react";
 import { insertUserPlans } from "./api/userPlans";
 import Nav from "./components/Navbar";
+import Alert from 'react-bootstrap/Alert'
 
 
 export default function ChatbotPanel() {
@@ -9,6 +10,7 @@ export default function ChatbotPanel() {
     const [userDietPlan, setUserDietPlan] = useState("");
     const [hasAllUserData, setHasAllUserData] = useState(false);
     const [chatbotShow, setChatbotShow] = useState(false);
+    const [show, setShow] = useState(false);
 
 
     useEffect(() => {   
@@ -20,6 +22,7 @@ export default function ChatbotPanel() {
             const workoutExperience = localStorage.getItem("workoutExperience")
             const healthIssues = localStorage.getItem("healthIssues")
             insertUserPlans(userID, userDietPlan, userTrainingPlan, maintananceCalories, goal, cutBulkRate, workoutExperience, healthIssues);
+            setShow(true);
             localStorage.clear();
         //eslint-disable-next-line
         }}, [hasAllUserData]);
@@ -36,6 +39,19 @@ export default function ChatbotPanel() {
 
         {hasAllUserData && 
         <div className="row justify-content-center">
+          {/*Alert*/}
+        <Alert show={show} variant="success">
+        <Alert.Heading>My Alert</Alert.Heading>
+        <p>
+          Sucessfully changed password!
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <Button onClick={() => setShow(false)} variant="outline-success">
+            Close me
+          </Button>
+        </div>
+      </Alert>
           <div className="col-10 col-lg-5 border m-1 secondary">
             <h2 className="mb-4">Your Training Plan</h2>
             <pre dangerouslySetInnerHTML={{ __html: userTrainingPlan }}></pre>
