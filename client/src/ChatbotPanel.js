@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { insertUserPlans } from "./api/userPlans";
 import Nav from "./components/Navbar";
 import Alert from 'react-bootstrap/Alert'
-
+import Button from 'react-bootstrap/Button'
 
 export default function ChatbotPanel() {
     const [userTrainingPlan, setUserTrainingPlan] = useState("");
