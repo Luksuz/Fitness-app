@@ -37,21 +37,22 @@ export default function ChatbotPanel() {
           />
         </div>
 
-        {hasAllUserData && 
-        <div className="row justify-content-center">
-          {/*Alert*/}
-        <Alert show={show} variant="success">
-        <Alert.Heading>My Alert</Alert.Heading>
-        <p>
-          Sucessfully changed password!
-        </p>
-        <hr />
-        <div className="d-flex justify-content-end">
-          <Button onClick={() => setShow(false)} variant="outline-success">
-            Close me
+        {!hasAllUserData && 
+        <>
+        <div className="d-flex justify-content-center">
+        <Alert show={show} variant="success" className="row w-50 fade-out">
+        <Alert.Heading className="text-center">Plans saved to "My plans"!</Alert.Heading>
+        <div className="d-flex justify-content-center">
+        <Button onClick={() => setShow(false)} variant="outline-success">
+            Close
           </Button>
         </div>
       </Alert>
+        </div>
+        
+        <div className="d-flex row z-3 justify-content-center align-items-center">
+          {/*Alert*/}
+        
           <div className="col-10 col-lg-5 border m-1 secondary">
             <h2 className="mb-4">Your Training Plan</h2>
             <pre dangerouslySetInnerHTML={{ __html: userTrainingPlan }}></pre>
@@ -60,7 +61,9 @@ export default function ChatbotPanel() {
             <h2 className="mb-4">Your Diet Plan</h2>
             <pre>{userDietPlan}</pre>
           </div>
-        </div>}
+        </div>
+        </>
+        }
         <div className="row chatbot justify-content-end z-3">
           <div className="col-12 col-md-6 col-lg-4" style={chatbotShow? { height: "500px", background: "white"} : {height: "500px"}}>
             {
