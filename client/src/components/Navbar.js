@@ -5,6 +5,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 import { useState } from "react";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const iconSize = "30px";
@@ -37,7 +38,9 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
     <div className="shadow-lg mb-3">
       <Navbar>
         <Container>
-          <Navbar.Brand href="#home" className="fs-3">GetActive</Navbar.Brand>
+          <Navbar.Brand href="#home" className="fs-3">
+            GetActive
+          </Navbar.Brand>
           <div className="d-none d-lg-block">
             <ul className="d-flex gap-2 text-center justify-content-center align-items-center">
               <li onClick={handleDashboardClick}>
@@ -57,6 +60,15 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
                 />
                 My plans
               </li>
+              <li onClick={handleSettingsClick}>
+                <img
+                  src="./images/settings.png"
+                  width={iconSize}
+                  className="me-1"
+                  alt="menu"
+                />
+                Settings
+              </li>
               <li onClick={handleLogoutClick}>
                 <img
                   src="./images/logout.png"
@@ -66,14 +78,23 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
                 />
                 Logout
               </li>
-              <li onClick={handleSettingsClick}>
-                <img
-                  src="./images/settings.png"
-                  width={iconSize}
-                  className="me-1"
-                  alt="menu"
-                />
-                Settings
+              <li className="p-1 bg-info">
+                <OverlayTrigger
+                  trigger="click"
+                  key="bottom"
+                  placement="bottom"
+                  overlay={
+                    <Popover id={`popover-positioned-bottom`}>
+                      <Popover.Header as="h3">{`App help`}</Popover.Header>
+                      <Popover.Body>
+                      Start by opening op the chatbot (robot icon) and chat with Ronnie as he asks you about your lifestyle to determine the best diet and training plans for you.
+                            After, your diet and training plans will be stored in "My plans".
+                      </Popover.Body>
+                    </Popover>
+                  }
+                >
+                  <Button variant="info">help</Button>
+                </OverlayTrigger>
               </li>
               {isChatbotPanel && (
                 <Button
@@ -122,6 +143,14 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
                     />
                     My plans
                   </li>
+                  <li onClick={handleSettingsClick} className="p-2 rounded-3">
+                    <img
+                      src="./images/settings.png"
+                      width={iconSize}
+                      alt="settings"
+                    />
+                    Settings
+                  </li>
                   <li onClick={handleLogoutClick} className="p-2 rounded-3">
                     <img
                       src="./images/logout.png"
@@ -130,13 +159,23 @@ export default function Nav({ isChatbotPanel, setChatbotShow, chatbotShow }) {
                     />
                     Logout
                   </li>
-                  <li onClick={handleSettingsClick} className="p-2 rounded-3">
-                    <img
-                      src="./images/settings.png"
-                      width={iconSize}
-                      alt="settings"
-                    />
-                    Settings
+                  <li className="bg-info">
+                    <OverlayTrigger
+                      trigger="click"
+                      key="right"
+                      placement="right"
+                      overlay={
+                        <Popover id={`popover-positioned-right`}>
+                          <Popover.Header as="h3">{`App help`}</Popover.Header>
+                          <Popover.Body>
+                            Start by opening op the chatbot (robot icon) and chat with Ronnie as he asks you about your lifestyle to determine the best diet and training plans for you.
+                            After, your diet and training plans will be stored in "My plans".
+                          </Popover.Body>
+                        </Popover>
+                      }
+                    >
+                      <Button variant="info">help</Button>
+                    </OverlayTrigger>
                   </li>
                 </ul>
               </Offcanvas.Body>

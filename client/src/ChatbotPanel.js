@@ -36,8 +36,7 @@ export default function ChatbotPanel() {
           chatbotShow={chatbotShow}
           />
         </div>
-
-        {!hasAllUserData && 
+        {hasAllUserData && 
         <>
         <div className="d-flex justify-content-center">
         <Alert show={show} variant="success" className="row w-50 fade-out">
@@ -50,8 +49,7 @@ export default function ChatbotPanel() {
       </Alert>
         </div>
         
-        <div className="d-flex row z-3 justify-content-center align-items-center">
-          {/*Alert*/}
+        <div className="row justify-content-center">
         
           <div className="col-10 col-lg-5 border m-1 secondary">
             <h2 className="mb-4">Your Training Plan</h2>
