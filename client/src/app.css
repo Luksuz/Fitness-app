@@ -15,4 +15,11 @@ ul{
     list-style-type: none;
 
 }
-
+.app{
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    background-image: url('../public/particles.svg');
+    background-size: cover;
+    background-repeat: repeat;
+  }

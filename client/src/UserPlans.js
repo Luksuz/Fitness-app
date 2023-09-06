@@ -31,7 +31,7 @@ export default function UserPlans() {
 
   const mapppedUserPlans = userPlans.map((plan, index) => {
     return (
-      <div key={index} className="d-flex bordered rounded-2 col-6 col-4-md justify-content-center align-items-center">
+      <div key={index} className="d-flex bordered rounded-2 col-6 col-4-md my-3 justify-content-center align-items-center">
         <Button variant="success" onClick={() => handleShowModal(index)}>
             <p className="fs-4">{plan.workoutExperience}</p>
             <p className="fs-4">{plan.goal}</p>
