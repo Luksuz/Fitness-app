@@ -13,22 +13,18 @@ To preview the project locally, follow these steps:
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/Fitness-app.git
+```
 
-# create 2 terminals, 1 for server and 1 for client
-cd fitness-app
-
-# in 1-st
-cd client
+In first terminal:
+```bash
+cd fitness-app/client
 npm i
 npm start
+```
 
-# in 2-nd
-cd severs
+In second terminal:
+```bash
+cd server
 pip install -r requirements.txt
 python main.py
-
-
-
-
-# Install dependencies
-pip install -r requirements.txt
+```
